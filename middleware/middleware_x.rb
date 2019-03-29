@@ -8,7 +8,7 @@ class MiddlewareX
 
   def call(env)
     middleware = Rack::Builder.new
-    middleware.use Middleware1
+    middleware.use Middleware1, text: "This will be printed to the terminal"
     middleware.use Middleware2
     middleware.run @app
     middleware.call(env)
